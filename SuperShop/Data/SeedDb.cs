@@ -20,6 +20,11 @@ namespace SuperShop.Data
             _random = new Random();
         }
 
+        /// <summary>
+        /// If the database is empty, create generic products and a user
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
@@ -57,6 +62,11 @@ namespace SuperShop.Data
             }
         }
 
+        /// <summary>
+        /// Add products to table Products
+        /// </summary>
+        /// <param name="name">Name Product</param>
+        /// <param name="user">User </param>
         private void AddProduct(string name, User user)
         {
             _context.Products.Add(new Product

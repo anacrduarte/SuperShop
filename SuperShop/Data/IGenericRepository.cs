@@ -6,20 +6,20 @@ namespace SuperShop.Data
     public interface IGenericRepository<T> where T : class
     {
         /// <summary>
-        /// Devolve todas as entidades
+        /// Get all results for entity T
         /// </summary>
         /// <returns></returns>
         IQueryable<T> GetAll();
 
         /// <summary>
-        /// Devolve por id
+        /// Get entity for id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         Task<T> GetByIdAsync(int id);
 
         /// <summary>
-        /// Criar entidade do tipo T(genérico)
+        /// Create an entity type T(generic)
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -33,17 +33,17 @@ namespace SuperShop.Data
         Task UpdateAsync(T entity);
 
         /// <summary>
-        /// Delete entity type T
+        /// Delete entity from database
         /// </summary>
-        /// <param name="entity"></param>
+        /// <param name="entity">entity</param>
         /// <returns></returns>
         Task DeleteAsync(T entity);
 
         /// <summary>
-        /// see if exists
+        ///Know if the entity still exists
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id</param>
+        /// <returns>True or False</returns>
         Task<bool> ExistAsync(int id);
     }
 }
