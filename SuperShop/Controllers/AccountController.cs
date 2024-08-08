@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SuperShop.Data.Entities;
 using SuperShop.Helpers;
 using SuperShop.Models;
@@ -87,6 +88,8 @@ namespace SuperShop.Controllers
                         Email = model.Username,
                         UserName = model.Username,
                     };
+
+                    //TODO:Por role customer
 
                     var result = await _userHelper.AddUserAsync(user, model.Password);
                     if (result != IdentityResult.Success)
