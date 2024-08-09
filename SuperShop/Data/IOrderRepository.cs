@@ -12,5 +12,8 @@ namespace SuperShop.Data
         /// <param name="userName"></param>
         /// <returns>table of orders</returns>
         Task<IQueryable<Order>> GetOrderAsync(string userName);
+
+       
+        Task<IQueryable<OrderDetailTemp>> GetDetailTempsAsync(string userName);
     }
 }
