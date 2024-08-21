@@ -16,10 +16,10 @@ namespace SuperShop.Data.Entities
         public DateTime OrderDate { get; set; }
 
 
-        [Required]
+        
         [Display(Name = "Delivery date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy HH:mm}", ApplyFormatInEditMode = false)]
-        public DateTime DeliveryDate { get; set; }
+        public DateTime? DeliveryDate { get; set; }
 
         [Required]
         public User User { get; set; }
