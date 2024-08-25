@@ -22,7 +22,29 @@ namespace SuperShop.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modalBuilder)
+        {
+            modalBuilder.Entity<Country>()
+                .HasIndex(c => c.Name)
+                .IsUnique();
+
+            modalBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+
+            modalBuilder.Entity<OrderDetailTemp>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+            modalBuilder.Entity<OrderDetail>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+            base.OnModelCreating(modalBuilder);
+        }
+
 
         //Habilitar a regra de apagar em cascata(Cascade Delete Rule)
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
